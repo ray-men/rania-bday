@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Rania! 🌹</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #8B0000, #FF0000);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .birthday-message {
+            color: #ffffff;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px #330000;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        #surpriseButton {
+            padding: 20px 40px;
+            font-size: 1.8em;
+            background: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        #surpriseButton:hover {
+            background: #CC0000;
+            transform: scale(1.1);
+        }
+
+        .rose-animation {
+            position: fixed;
+            font-size: 28px;
+            animation: roseFloat 4s linear forwards;
+            opacity: 0;
+        }
+
+        .custom-image {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #ff0000;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes roseFloat {
+            0% { opacity: 1; transform: translateY(100vh); }
+            100% { opacity: 0; transform: translateY(-100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="birthday-message">
+        🌹🎉 Happy Birthday Rania! 🎉🌹<br>
+        Wish You All the Best! 💖
+    </h1>
+
+    <button id="surpriseButton">🎁 Reveal Your Surprise!</button>
+
+    <script>
+        document.getElementById('surpriseButton').addEventListener('click', () => {
+            // Create rose animation
+            for(let i = 0; i < 50; i++) {
+                const rose = document.createElement('div');
+                rose.className = 'rose-animation';
+                rose.style.left = Math.random() * 100 + 'vw';
+                rose.style.animationDelay = i * 0.2 + 's';
+                rose.textContent = Math.random() > 0.5 ? '🌹' : '❤️';
+                document.body.appendChild(rose);
+            }
+            
+            // Create and show your image
+            const img = document.createElement('img');
+            img.className = 'custom-image';
+            img.src = 'rania.jpg'; // ← REPLACE WITH YOUR IMAGE FILENAME
+            img.alt = 'Birthday Surprise';
+            document.body.appendChild(img);
+            img.style.display = 'block';
+
+            // Hide button
+            document.getElementById('surpriseButton').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
